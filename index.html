@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+
+    <title>Django Best Practices</title>
+
+    <meta name="description" content="Django Best Practices Presentation">
+    <meta name="author" content="Abdullah Cetin CAVDAR">
+    <meta name="publisher" content="Udemy">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="reveal/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal/css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="reveal/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Django Best Practices</h1>
+
+            <h3>March, 2014</h3>
+
+            <p>
+                <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
+                    href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
+            </p>
+        </section>
+
+        <section>
+            <p>This presentation is prepared based on the great book <a
+                    href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707">Two Scoops of Django:
+                Best
+                Practices For Django 1.5</a> by <a href="https://twitter.com/pydanny" target="_blank">Daniel
+                Greenfeld</a> and
+                <a href="https://twitter.com/audreyr" target="_blank">Audrey Roy</a>
+            </p>
+            <img src="img/two_scoops.png"/>
+        </section>
+
+        <section>
+            <section>
+                <h2>Core Concepts</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Coding Style</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>The Optimal Django Environment Setup</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>How to Layout Django Projects</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Fundamentals of Django App Design</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Settings and Requirements Files</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Database/Model Best Practices</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Function- and Class- Based Views</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Best Practices for Class-Based Views</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Common Patterns for Forms</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>More Things to Know About Forms</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Building REST APIs in Django</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Templates: Best Practices</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Template Tangs and Filters</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Trade offs of Replacing Core Components</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Working with Django Admin</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Dealing with the User Model</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Third Party Packages</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Testing</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Documentation</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Finding and Reducing Bottlenecks</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Security Best Practices</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Logging</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Signals: Use Cases and Avoidance Techniques</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Random Utilities</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Deploying Django Projects</h2>
+            </section>
+        </section>
+
+    </div>
+</div>
+
+<script src="reveal/lib/js/head.min.js"></script>
+<script src="reveal/js/reveal.min.js"></script>
+
+<script>
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme,
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+        dependencies: [
+            { src: 'reveal/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            } },
+            { src: 'reveal/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'reveal/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } },
+            { src: 'reveal/plugin/notes/notes.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+</script>
+</body>
+</html>

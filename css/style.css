@@ -1,0 +1,16 @@
+.focus {
+    color: #E7AD52;
+}
+
+.success {
+    color: greenyellow;
+}
+
+.alert {
+    color: red;
+}
+
+h1.drogba, h2.drogba {
+    color: #E7AD52;
+    text-shadow: 6px 6px 2px rgba(0, 0, 0, 1);
+}
