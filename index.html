@@ -32,186 +32,210 @@
 </head>
 <body>
 <div class="reveal">
-    <div class="slides">
-        <section>
-            <h1>Django Best Practices</h1>
+<div class="slides">
+<section>
+    <h1>Django Best Practices</h1>
 
-            <h3>March, 2014</h3>
+    <h3>March, 2014</h3>
 
-            <p>
-                <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
-                    href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
-            </p>
-        </section>
+    <p>
+        <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
+            href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
+    </p>
+</section>
 
-        <section>
-            <p>This presentation is prepared based on the great book <a
-                    href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707">Two Scoops of Django:
-                Best
-                Practices For Django 1.5</a> by <a href="https://twitter.com/pydanny" target="_blank">Daniel
-                Greenfeld</a> and
-                <a href="https://twitter.com/audreyr" target="_blank">Audrey Roy</a>
-            </p>
-            <img src="img/two_scoops.png"/>
-        </section>
+<section>
+    <p>This presentation is prepared based on the great book <a
+            href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707">Two Scoops of Django:
+        Best
+        Practices For Django 1.5</a> by <a href="https://twitter.com/pydanny" target="_blank">Daniel
+        Greenfeld</a> and
+        <a href="https://twitter.com/audreyr" target="_blank">Audrey Roy</a>
+    </p>
+    <img src="img/two_scoops.png"/>
+</section>
 
-        <section>
-            <section>
-                <h2>Core Concepts</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Core Concepts</h2>
+    </section>
 
-        <section>
-            <section>
-                <h2>Coding Style</h2>
-            </section>
-        </section>
+    <section>
+        <h1>KISS</h1>
 
-        <section>
-            <section>
-                <h2>The Optimal Django Environment Setup</h2>
-            </section>
-        </section>
+        <h2>Keep It Simple, Stupid</h2>
+    </section>
 
-        <section>
-            <section>
-                <h2>How to Layout Django Projects</h2>
-            </section>
-        </section>
+    <section>
+        <h2>Fat Models, Helper Modules, Thin Views, Stupid Templates</h2>
+        <ul>
+            <li class="fragment roll-in">Put more logic into anything but views and templates</li>
+            <li class="fragment roll-in">Template tags and filters should contain the minimum logic possible
+            </li>
+        </ul>
+    </section>
 
-        <section>
-            <section>
-                <h2>Fundamentals of Django App Design</h2>
-            </section>
-        </section>
+    <section>
+        <h2>Start With Django by Default</h2>
+        <ul>
+            <li class="fragment roll-in">If we run into obstacles, we explore all possibilities before replacing core
+                Django components
+            </li>
+        </ul>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Settings and Requirements Files</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Coding Style</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Database/Model Best Practices</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>The Optimal Django Environment Setup</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Function- and Class- Based Views</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>How to Layout Django Projects</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Best Practices for Class-Based Views</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Fundamentals of Django App Design</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Common Patterns for Forms</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Settings and Requirements Files</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>More Things to Know About Forms</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Database/Model Best Practices</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Building REST APIs in Django</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Function- and Class- Based Views</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Templates: Best Practices</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Best Practices for Class-Based Views</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Template Tangs and Filters</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Common Patterns for Forms</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Trade offs of Replacing Core Components</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>More Things to Know About Forms</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Working with Django Admin</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Building REST APIs in Django</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Dealing with the User Model</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Templates: Best Practices</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Third Party Packages</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Template Tangs and Filters</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Testing</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Trade offs of Replacing Core Components</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Documentation</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Working with Django Admin</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Finding and Reducing Bottlenecks</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Dealing with the User Model</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Security Best Practices</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Third Party Packages</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Logging</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Testing</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Signals: Use Cases and Avoidance Techniques</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Documentation</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Random Utilities</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Finding and Reducing Bottlenecks</h2>
+    </section>
+</section>
 
-        <section>
-            <section>
-                <h2>Deploying Django Projects</h2>
-            </section>
-        </section>
+<section>
+    <section>
+        <h2>Security Best Practices</h2>
+    </section>
+</section>
 
-    </div>
+<section>
+    <section>
+        <h2>Logging</h2>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Signals: Use Cases and Avoidance Techniques</h2>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Random Utilities</h2>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Deploying Django Projects</h2>
+    </section>
+</section>
+
+</div>
 </div>
 
 <script src="reveal/lib/js/head.min.js"></script>
