@@ -86,14 +86,166 @@
 </section>
 
 <section>
+
     <section>
         <h2>Coding Style</h2>
     </section>
+
+    <section>
+        <h2>The Importance of Making Your Code Readable</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Avoid abbreviating variable names
+                <ul>
+                    <li><span class="focus">Good:</span> balance_sheet_decrease</li>
+                    <li><span class="focus">Bad:</span> bsd or bal_s_d</li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">Write out your function argument names</li>
+            <li class="fragment roll-in">Document your classes and methods</li>
+            <li class="fragment roll-in">Refactor repeated lines of code into reusable functions or methods</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>PEP8</h2>
+        <ul>
+            <li class="fragment roll-in">Use 4 spaces per indentation level</li>
+            <li class="fragment roll-in">Separate top-level function and class definitions with two blank lines</li>
+            <li class="fragment roll-in">Method definitions inside a class are separated by a single blank line</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>The Word on Imports</h2>
+
+        <p>The Order:</p>
+        <ul>
+            <li class="fragment roll-in">Standard library imports</li>
+            <li class="fragment roll-in">Imports from core Django</li>
+            <li class="fragment roll-in">Imports from third-party apps</li>
+            <li class="fragment roll-in">Imports from the apps that you created as part of your Django project</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>The Word on Imports</h2>
+        <img src="img/imports.png"/>
+    </section>
+
+    <section>
+        <h2>Use Explicit Relative Imports</h2>
+
+        <p class="alert">Don't do this:</p>
+        <img src="img/hardcoded_import.png">
+    </section>
+
+    <section>
+        <h2>Use Explicit Relative Imports</h2>
+
+        <p class="success">Do this:</p>
+        <img src="img/explicit_import.png">
+    </section>
+
+    <section>
+        <h2>Import Types</h2>
+        <img src="img/import_types.png">
+    </section>
+
+    <section>
+        <h3><span class="focus">Get into the habit of using explicit relative imports.</span></h3>
+    </section>
+
+    <section>
+        <h2>Avoid Using Import *</h2>
+
+        <p class="alert">Don't do this:</p>
+        <img src="img/import_star.png">
+    </section>
+
+    <section>
+        <h2>Avoid Using Import *</h2>
+
+        <p>The reason for this is <span class="focus">to avoid implicitly loading all of another Python module’s locals into</span>
+            and over <span class="focus">our current module’s namespace</span>, which can produce <span class="focus">unpredictable</span>
+            and sometimes <span class="focus">catastrophic
+            results</span>.</p>
+    </section>
+
+    <section>
+        <h2>Django Coding Style Guidelines</h2>
+
+        <ul>
+            <li class="fragment roll-in">Use underscores (the '_' character) in URL pattern names rather than dashes as
+                this is friendlier to more IDEs and text editors.
+            </li>
+            <li class="fragment roll-in">For the same reason, use underscores rather than dashes in template block
+                names.
+            </li>
+            <li class="fragment roll-in">Follow the commonly used naming pattern of <span class="focus">&lt;app_name&gt;_tags.py</span>
+                for template tags
+            </li>
+
+        </ul>
+
+        <p class="fragment roll-in"><a
+                href="https://docs.djangoproject.com/en/1.6/internals/contributing/writing-code/coding-style/"
+                target="_blank">Django Coding Style Guidelines</a></p>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+
+        <ul>
+            <li class="fragment roll-in">Follow a <span class="focus">consistent coding style</span></li>
+            <li class="fragment roll-in">Projects with <span class="focus">varying styles</span> are <span
+                    class="focus">much harder to maintain</span>, <span class="focus">slowing development</span> and
+                <span class="focus">increasing the chances of developer mistakes</span></li>
+        </ul>
+    </section>
+
 </section>
 
 <section>
     <section>
         <h2>The Optimal Django Environment Setup</h2>
+    </section>
+
+    <section>
+        <h2>Use the Same Database Engine Everywhere</h2>
+
+        <p>A common developer pitfall is using SQLite3 for local development and PostgreSQL (or another database besides
+            SQLite3) in production.</p>
+
+        <p class="focus">They may not behave identical in different environments.</p>
+        <ul>
+            <li class="fragment roll-in">Fixtures Are Not a Magic Solution</li>
+            <li class="fragment roll-in">You Can’t Examine an Exact Copy of Production Data Locally</li>
+            <li class="fragment roll-in">Different Databases Have Different Field Types/Constraints</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Use <span class="focus">Pip</span> and <span class="focus">Virtualenv</span></h2>
+        <ul>
+            <li class="fragment roll-in"><span class="focus">Pip</span> is used to manage and install Python packages
+            </li>
+            <li class="fragment roll-in">Without <span class="focus">virtualenv</span> you have to update dependency
+                versions every time you switch projects
+            </li>
+            <li class="fragment roll-in">If that sounds tedious, keep in mind that most real Django projects have at
+                least a dozen dependencies to maintain
+            </li>
+            <li class="fragment roll-in"><span class="focus">$ source ~/Envs/udemy/bin/activate</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Install Django and Other Dependencies via <span class="focus">Pip</span></h2>
+    </section>
+
+    <section>
+        <h2>Use a Version Control System</h2>
     </section>
 </section>
 
