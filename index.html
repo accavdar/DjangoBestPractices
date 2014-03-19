@@ -253,6 +253,84 @@
     <section>
         <h2>How to Layout Django Projects</h2>
     </section>
+
+    <section>
+        <h2>Prefered Project Layout</h2>
+        <img src="img/project_layout.png"/>
+    </section>
+
+    <section>
+        <h2>Top Level: Repository Root</h2>
+        <ul>
+            <li class="fragment roll-in">The top-level <span class="focus">&lt;repository_root&gt;/</span> directory is
+                the absolute root directory of the project
+            </li>
+            <li class="fragment roll-in">Place other critical components like the <span class="focus">README.rst</span>,
+                <span class="focus">docs/</span> directory, <span class="focus">design/</span> directory, <span
+                        class="focus">.gitignore</span>, <span class="focus">requirements.txt</span> files, and other
+                <span class="focus">high-level files</span> that are required for deployment
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Second Level: Django Project Root</h2>
+        <ul>
+            <li class="fragment roll-in">This directory contains the
+                <span class="focus">&lt;configuration_root&gt;</span>, <span class="focus">media</span> and <span
+                        class="focus">static</span> directories, a <span class="focus">site-wide templates</span>
+                directory, as well as <span class="focus">Django
+                    apps</span> specific to your particular project
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Third Level: Configuration Root</h2>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">&lt;configuration_root&gt;</span> directory is where the <span class="focus">settings module</span>
+                and base <span class="focus">URLConf (urls.py)</span> are placed
+            </li>
+            <li class="fragment roll-in">
+                This must be a valid Python package (containing an <span class="focus">__init__.py</span> module)
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Sample Project Layout</h2>
+        <img src="img/sample_project_layout.png"/>
+    </section>
+
+    <section>
+        <h2>What About the Virtualenv?</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Put all our environments in one directory and all our projects in another
+            </li>
+        </ul>
+        <img src="img/vm_dirs.png" class="fragment roll-in"/>
+    </section>
+
+    <section>
+        <h3>TIP: Listing Current Dependencies</h3>
+
+        <h3><span class="focus">pip freeze --local</span></h3>
+    </section>
+
+    <section>
+        <h2>Startproject Template to Generate Layout</h2>
+
+        <p class="focus">django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/zipball/master --extension=py,rst,html $project-name</p>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+
+        <p class="focus">Whatever layout is chosen should be documented clearly</p>
+    </section>
+
 </section>
 
 <section>
