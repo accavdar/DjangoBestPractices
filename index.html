@@ -608,7 +608,6 @@
                 risk as much as untracked settings
             </li>
         </ul>
-
     </section>
 
 </section>
@@ -616,6 +615,192 @@
 <section>
     <section>
         <h2>Database/Model Best Practices</h2>
+    </section>
+
+    <section>
+        <h2>Basics</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Break Up Apps With Too Many Models
+            </li>
+            <li class="fragment roll-in">
+                Don’t Drop Down to Raw SQL Until It’s Necessary
+            </li>
+            <li class="fragment roll-in">
+                Add Indexes as Needed
+            </li>
+            <li class="fragment roll-in">
+                Be Careful With Model Inheritance
+            </li>
+            <li class="fragment roll-in">
+                Use South for Migrations
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Condiser Adding Indexes?</h2>
+        <ul>
+            <li class="fragment roll-in">
+                The index is used frequently, as in 10-25% of all queries
+            </li>
+            <li class="fragment roll-in">
+                There is real data, or something that approximates real data, so we can analyze the results of indexing
+            </li>
+            <li class="fragment roll-in">
+                We can run tests to determine if indexing generates an improvement in results
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Django Model Inheritance</h2>
+
+        <p><span class="focus">No Model Inheritance</span> if models have a common field, give both models that field
+        </p>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="success">Pro:</span> Makes it easiest to understand at a glance how Django models map to
+                database tables
+            </li>
+            <li class="fragment roll-in">
+                <span class="alert">Con:</span> If there are a lot of fields duplicated across models, this can be hard
+                to maintain
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Django Model Inheritance</h2>
+
+        <p><span class="focus">Abstract base classes</span> tables are only created for derived models
+        </p>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="success">Pro:</span> Having the common fields in an abstract parent class saves us from
+                typing them more than once. We don’t get the overhead of extra tables and joins that are incurred from
+                multi-table inheritance
+            </li>
+            <li class="fragment roll-in">
+                <span class="alert">Con:</span> We cannot use the parent class in isolation
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Django Model Inheritance</h2>
+
+        <p><span class="focus">Multi-table inheritance</span> tables are created for both parent and child. An implied
+            <span class="focus">OneToOneField</span> links parent and child
+        </p>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="success">Pro:</span> Gives each model its own table, so that we can query either parent or
+                child model. Also gives us the ability to get to a child object from a parent object: <span
+                    class="focus">parent.child</span>
+            </li>
+            <li class="fragment roll-in">
+                <span class="alert">Con:</span> Adds substantial overhead since each query on a child table requires
+                joins with all parent tables. <span class="focus">We strongly recommend against using multi-table inheritance</span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Django Model Inheritance</h2>
+
+        <p><span class="focus">Proxy Models</span> a table is only created for the original model</p>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="success">Pro:</span> Allows us to have an alias of a model with different Python behavior
+            </li>
+            <li class="fragment roll-in">
+                <span class="alert">Con:</span> We cannot change the model’s fields
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>WARNING: Avoid Multi-Table Inheritance</h2>
+
+        <p class="alert">Multi-table inheritance, sometimes called "concrete inheritance" is considered by the authors
+            and many other
+            developers to be a bad thing. We strongly recommend against using it</p>
+    </section>
+
+    <section>
+        <h2>Django Model Design</h2>
+    </section>
+
+    <section>
+        <h2>Design Basics</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Start Normalized
+            </li>
+            <li class="fragment roll-in">
+                Cache Before Denormalizing
+            </li>
+            <li class="fragment roll-in">
+                Denormalize Only if Absolutely Needed
+            </li>
+            <li class="fragment roll-in">
+                When to Use Null and Blank
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Null vs. Blank</h2>
+        <img src="img/null_blank.png"/>
+    </section>
+
+    <section>
+        <h2>Model Managers</h2>
+    </section>
+
+    <section>
+        <h2>Model Managers Basics</h2>
+
+        <p>Every time we use the Django ORM to query a model, we are using an interface called a <span class="focus">model manager</span>
+            to interact with the database</p>
+
+        <p>Django provides a default model manager for each model class, but we can define our own</p>
+    </section>
+
+    <section>
+        <h2>Custom Model Manager</h2>
+        <img src="img/custom_model_manager.png"/>
+    </section>
+
+    <section>
+        <h2>Custom Model Manager</h2>
+        <img src="img/model_manager_call.png"/>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Take the time to design models thoughtfully
+            </li>
+            <li class="fragment roll-in">
+                Start normalized, and only denormalize if you’ve already explored other options thoroughly
+            </li>
+            <li class="fragment roll-in">
+                Try to address your performance issues with caching
+            </li>
+            <li class="fragment roll-in">
+                Don’t forget to use indexes. Add indexes when you have a better feel
+            </li>
+            <li class="fragment roll-in">
+                If you decide to use model inheritance, inherit from abstract base classes rather than concrete models.
+                You’ll save yourself from the confusion of dealing with implicit, unneeded joins
+            </li>
+            <li class="fragment roll-in">
+                Use South to manage your data and schema migrations
+            </li>
+        </ul>
     </section>
 </section>
 
