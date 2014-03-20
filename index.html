@@ -808,6 +808,84 @@
     <section>
         <h2>Function- and Class- Based Views</h2>
     </section>
+
+    <section>
+        <h2>When to use FBV or CBVs</h2>
+        <img src="img/fbc_vs_cbv.png"/>
+    </section>
+
+    <section>
+        <h2>Keep View Logic Out of URLConfs</h2>
+        <ul>
+            <li class="fragment roll-in">
+                The views modules should contain view logic
+            </li>
+            <li class="fragment roll-in">
+                The URL modules should contain URL logic
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <img src="img/bad_urls.png"/>
+    </section>
+
+    <section>
+        <h2>Stick to Loose Coupling in <span class="focus">URLConfs</span></h2>
+    </section>
+
+    <section>
+        <img src="img/good_view.png"/>
+    </section>
+
+    <section>
+        <img src="img/good_urls.png"/>
+    </section>
+
+    <section>
+        <h2>Best Practices</h2>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">Don’t Repeat Yourself</span>: No argument or attribute is repeated between views
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Loose coupling</span>: We’ve removed the model and template names from the URLConf
+                because views should be
+                views and URLConfs should be URLConfs. We should be able to call our views from one or more URLConfs,
+                and our approach lets us do just that
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">URLConfs should do one thing and do it well: Related to our previous bullet, our URLConf is now focused
+                primarily on just one thing</span>: URL routing. We aren’t tracking down view logic across both views
+                and
+                URLConfs, we just look in our views
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Our views benefit from being class-based</span>: Our views, by having a formal
+                definition in the views module,
+                can inherit from other classes. This means adding authentication, authorization, new content formats, or
+                anything other business requirement tossed our way is much easier to handle
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Infinite flexibility</span>: Our views, by having a formal definition in the views
+                module, can implement their
+                own custom logic
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Try to Keep Business Logic Out of Views</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Placing so much logic in our views made it much harder to deliver new formats such as PDF or REST API
+            </li>
+            <li class="fragment roll-in">
+                Business logic is placed into easily reusable components, and called from within views, it makes
+                extending components of the project to do more things much easier
+            </li>
+        </ul>
+    </section>
 </section>
 
 <section>
