@@ -951,6 +951,98 @@
     <section>
         <h2>Things to Know About Forms</h2>
     </section>
+
+    <section>
+        <h2>Statistics</h2>
+        <ul>
+            <li class="fragment roll-in">
+                95% of Django projects should use ModelForms
+            </li>
+            <li class="fragment roll-in">
+                91% of all Django projects use ModelForms
+            </li>
+            <li class="fragment roll-in">
+                80% of ModelForms require trivial logic
+            </li>
+            <li class="fragment roll-in">
+                20% of ModelForms require complicated logic
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Use the POST Method in HTML Forms</h2>
+
+        <p class="focus">Every HTML form that alters data must submit its data via the POST method</p>
+
+        <p class="focus">The only exception you’ll ever see to using POST in forms is with search forms, which typically
+            submit queries that don’t result in any alteration of data.</p>
+        <img src="img/form_post.png"/>
+    </section>
+
+    <section>
+        <h3>Know How Form Validation Works</h3>
+
+        <p>When you call <span class="focus">form.is_valid()</span>, a lot of things happen behind the scenes. The
+            following things occur according to this workflow:</p>
+        <ul>
+            <li class="fragment roll-in">
+                If the form has bound data, <span class="focus">form.is_valid()</span> calls the <span class="focus">form.full_clean()</span>
+                method
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">form.full_clean()</span> iterates through the form fields and each field validates
+                itself:
+                <ul>
+                    <li>Data coming into the field is coerced into Python via the <span class="focus">to_python()</span>
+                        method or raises a
+                        <span class="focus">ValidationError</span>
+                    </li>
+                    <li>Data is validated against field-specific rules, including custom validators. Failure raises a
+                        <span class="focus">ValidationError</span>
+                    </li>
+                    <li>If there are any custom <span class="focus">clean_
+                        &lt;field&gt;()</span> methods in the form, they are called at this time
+                    </li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">form.full_clean()</span> executes the <span class="focus">form.clean()</span> method
+            </li>
+            <li class="fragment roll-in">
+                If it’s a ModelForm instance, <span class="focus">form._post_clean()</span> does the following:
+                <ul>
+                    <li>Sets <span class="focus">ModelForm</span> data to the Model instance, regardless of whether
+                        <span class="focus">form.is_valid()</span> is <span class="focus">True</span> or
+                        <span class="focus">False</span>
+                    </li>
+                    <li>Calls the model’s <span class="focus">clean()</span> method. For reference, saving a model
+                        instance through the ORM does
+                        not call the model’s <span class="focus">clean()</span> method
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Form Data Is Saved to the Form, Then the Model Instance</h3>
+        <ul>
+            <li class="fragment roll-in">
+                First, form data is saved to the form instance
+            </li>
+            <li class="fragment roll-in">
+                Later, form data is saved to the model instance
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+
+        <p class="focus">Once you dig into forms, keep yourself focused on clarity of code and testability</p>
+    </section>
+
 </section>
 
 <section>
