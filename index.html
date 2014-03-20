@@ -320,9 +320,11 @@
     </section>
 
     <section>
-        <h2>Startproject Template to Generate Layout</h2>
+        <h2>Template to Generate Layout</h2>
 
-        <p class="focus">django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/zipball/master --extension=py,rst,html $project-name</p>
+        <p class="focus">django-admin.py startproject
+            --template=https://github.com/twoscoops/django-twoscoops-project/zipball/master --extension=py,rst,html
+            $project-name</p>
     </section>
 
     <section>
@@ -337,12 +339,278 @@
     <section>
         <h2>Fundamentals of Django App Design</h2>
     </section>
+
+    <section>
+        <h2>Definitions</h2>
+        <ul>
+            <li class="fragment roll-in"><span class="focus">A Django project</span> is a web application powered by the
+                Django web framework
+            </li>
+            <li class="fragment roll-in"><span class="focus">Django apps</span> are small libraries designed to
+                represent a single aspect of a
+                project. A Django project is made up of many Django apps. Some of those apps are internal to the project
+                and will never be reused; others are third-party Django packages.
+            </li>
+            <li class="fragment roll-in"><span class="focus">Third-party Django packages</span> are simply pluggable,
+                reusable Django apps that have been packaged with the Python packaging tools.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>The Golden Rule of Django App Design</h2>
+        <blockquote class="focus">"Write programs that do one thing and do it well"</blockquote>
+    </section>
+
+    <section>
+        <h2>The Golden Rule of Django App Design</h2>
+
+        <p><span class="focus">Each app should be tightly focused on its task</span></p>
+
+        <p>If an app can’t be explained in a single sentence of moderate length, or you need to say 'and' more than
+            once, it probably means the app is <span class="focus">too big</span> and should be <span class="focus">broken up</span>
+        </p>
+    </section>
+
+    <section>
+        <h2>What to Name Your Django Apps</h2>
+        <ul>
+            <li class="fragment roll-in">When possible keep to single word names like <span class="focus">flavors</span>,
+                <span class="focus">animals</span>, <span class="focus">blog</span>, <span class="focus">polls</span>,
+                <span class="focus">dreams</span>, <span class="focus">estimates</span>, and <span class="focus">finances</span>.
+                A good, obvious app name makes the project easier to maintain
+            </li>
+            <li class="fragment roll-in">As a general rule, the app’s name should be a <span class="focus">plural version of the app’s main model</span>,
+                but there are many good exceptions to this rule, blog being one of the most common ones
+            </li>
+            <li class="fragment roll-in">Use valid, PEP 8-compliant, importable Python package names: <span
+                    class="focus">short,
+                all-lowercase names without numbers, dashes, periods, spaces, or special characters</span>. If needed
+                for
+                readability, you can <span class="focus">use underscores to separate words</span>, although the use of
+                underscores is discouraged
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>When in Doubt, Keep Apps Small</h2>
+
+        <p class="focus">Try and keep your apps small. Remember, it’s better to have many small apps than to have a few
+            giant apps.</p>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+        <ul>
+            <li class="fragment roll-in">Each Django app should be <span
+                    class="focus">tightly-focused on its own task</span>, <span class="focus">possess a simple, easy-to-remember name</span>
+            </li>
+            <li class="fragment roll-in">If an app seems too complex, it should be <span class="focus">broken up into smaller apps</span>
+            </li>
+        </ul>
+    </section>
+
 </section>
 
 <section>
     <section>
         <h2>Settings and Requirements Files</h2>
     </section>
+
+    <section>
+        <h2>Best Practices</h2>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">All settings files need to be version-controlled</span>
+                <ul>
+                    <li>This is especially true in production environments, where dates, times, and explanations for
+                        settings changes absolutely must be tracked
+                    </li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Don’t Repeat Yourself</span>
+                <ul>
+                    <li>You should inherit from a base settings file rather than cutting-and-pasting from one file to
+                        another
+                    </li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Keep secret keys safe</span>
+                <ul>
+                    <li>They should be kept out of version control</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Avoid Non-Versioned Local Settings</h2>
+
+        <p class="focus">Let’s break up development, staging, test, and production settings into separate components
+            that inherit from a common base file all tracked by version control</p>
+    </section>
+
+    <section>
+        <h2>Using Multiple Settings Files</h2>
+        <img src="img/settings_dir.png"/>
+    </section>
+
+    <section>
+        <img src="img/settings_purpose.png"/>
+    </section>
+
+    <section>
+        <h4>TIP: Multiple Files with Continuous Integration Servers</h4>
+
+        <p>You’ll also want to have a <span class="focus">ci.py</span> module containing that server’s settings.</p>
+    </section>
+
+    <section>
+        <h2>Run Server</h2>
+
+        <p class="focus">python manage.py runserver --settings=udemy.settings.local</p>
+    </section>
+
+    <section>
+        <h2>--settings or DJANGO_SETTINGS_MODULE</h2>
+        <img src="img/settings_config.png"/>
+    </section>
+
+    <section>
+        <h2>DEV Settings Example</h2>
+        <img src="img/dev_settings.png"/>
+    </section>
+
+    <section>
+        <h3>Keep Secret Keys Out with Environment Variables</h3>
+        <ul>
+            <li class="fragment roll-in">
+                Secrets often should be just that: secret! Keeping them in version control means that everyone with
+                repository access has access to them
+            </li>
+            <li class="fragment roll-in">
+                Secret keys are configuration values, not code
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>To resolve this, our answer is to use <span class="focus">environment variables</span></h2>
+    </section>
+
+    <section>
+        <h2>Benefits of Using EV</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Keeping secrets out of settings allows you to store every settings file in version control without
+                hesitation. All of your Python code really should be stored in version control, including your settings
+            </li>
+            <li class="fragment roll-in">
+                Instead of each developer maintaining an easily-outdated, copy-and-pasted version of the
+                <span class="focus">local_settings.py.example</span> file for their own development purposes, everyone
+                shares the same
+                version-controlled <span class="focus">settings/local.py</span>
+            </li>
+            <li class="fragment roll-in">
+                System administrators can rapidly deploy the project without having to modify files containing Python
+                code
+            </li>
+            <li class="fragment roll-in">
+                Most platforms-as-a-service recommend the use of environment variables for configuration and have
+                built-in features for setting and managing them
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Local Settings & Usage</h2>
+        <img src="img/ev.png"/>
+        <img src="img/ev_in_code.png"/>
+    </section>
+
+    <section>
+        <h2>Using Multiple Requirements Files</h2>
+        <ul>
+            <li class="fragment roll-in">
+                First create a <span class="focus">requirements/</span> directory in the <span class="focus">&lt;repository_root&gt;</span>
+            </li>
+            <li class="fragment roll-in">
+                Then create <span class="focus">'.txt'</span> files that match the contents of your settings directory
+            </li>
+        </ul>
+        <img src="img/multiple_reqs.png" class="fragment roll-in">
+    </section>
+
+    <section>
+        <h2>Sample Config</h2>
+
+        <p class="focus">base.txt</p>
+        <img src="img/base_reqs.png">
+
+        <p class="focus">local.txt</p>
+        <img src="img/local_reqs.png">
+    </section>
+
+    <section>
+        <h2>Install From Reqs File</h2>
+
+        <p class="focus">for development env</p>
+        <img src="img/install_from_req_local.png">
+
+        <p class="focus">for production env</p>
+        <img src="img/install_from_req_prod.png">
+    </section>
+
+    <section>
+        <h2>Handling File Paths in Settings</h2>
+
+        <h3><span class="focus">Don't hardcode your paths</span></h3>
+    </section>
+
+    <section>
+        <h2>Hardcoded Paths</h2>
+
+        <p class="alert">Don't do this:</p>
+        <img src="img/hardcoded_paths.png">
+    </section>
+
+    <section>
+        <h2>Relative Paths with Unipath</h2>
+
+        <p class="success">Do this:</p>
+        <img src="img/relative_paths.png">
+    </section>
+
+    <section>
+        <h2>Relative Paths with Std Libs</h2>
+
+        <p class="success">Do this:</p>
+        <img src="img/relative_path_std.png">
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">Everything except for critical security related values</span> ought to be <span
+                    class="focus">tracked in version control</span>
+            </li>
+            <li class="fragment roll-in">
+                Any project that’s destined for a real live production server is bound to need <span class="focus">multiple settings and
+                requirements files</span>
+            </li>
+            <li class="fragment roll-in">
+                The same thing applies to <span class="focus">requirements files</span>. Working with untracked
+                dependency differences increases
+                risk as much as untracked settings
+            </li>
+        </ul>
+
+    </section>
+
 </section>
 
 <section>
