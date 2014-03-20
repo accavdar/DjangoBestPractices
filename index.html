@@ -1049,6 +1049,98 @@
     <section>
         <h2>Building REST APIs in Django</h2>
     </section>
+
+    <section>
+        <h2>Fundamentals of Basic REST API Design</h2>
+        <img src="img/http_methods.png"/>
+    </section>
+
+    <section>
+        <h2>Notes</h2>
+        <ul>
+            <li class="fragment roll-in">
+                If you’re implementing a read-only API, you might only need to implement GET methods
+            </li>
+            <li class="fragment roll-in">
+                If you’re implementing a read-write API you must at least also use POST, but should also consider using
+                PUT and DELETE
+            </li>
+            <li class="fragment roll-in">
+                By definition, GET, PUT, and DELETE are idempotent. POST and PATCH are not
+            </li>
+            <li class="fragment roll-in">
+                PATCH is often not implemented, but it’s a good idea to implement it if your API supports PUT requests
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Status Codes</h2>
+        <img src="img/status_codes.png"/>
+    </section>
+
+    <section>
+        <h3>Implementing a Simple JSON API</h3>
+
+        <p>Use <span class="focus">django-rest-framework</span></p>
+    </section>
+
+    <section>
+        <img src="img/rest_model.png"/>
+    </section>
+
+    <section>
+        <img src="img/rest_views.png"/>
+    </section>
+
+    <section>
+        <img src="img/rest_urls.png"/>
+    </section>
+
+    <section>
+        <img src="img/rest_mapping.png"/>
+    </section>
+
+    <section>
+        <h2>REST API Architecture</h2>
+    </section>
+
+    <section>
+        <h3>Code for an App Should Remain in the App</h3>
+
+        <p class="focus">REST API views should go into views.py modules and follow the same guidelines we endorse when
+            it comes to any other view</p>
+
+        <p class="focus">The same goes for app or model specific serializers and renderers.</p>
+    </section>
+
+    <section>
+        <h3>Try to Keep Business Logic Out of API Views</h3>
+
+        <p class="focus">It’s a good idea to try to keep as much logic as possible out of API views</p>
+    </section>
+
+    <section>
+        <h3>Grouping API URLs</h3>
+
+        <p class="focus">How do you build a project-wide API that looks like this?</p>
+        <img src="img/project_wide_api.png"/>
+
+    </section>
+
+    <section>
+        <h3>Solution</h3>
+
+        <p>When building a project-wide API we write the REST views in the <span class="focus">views.py</span> modules,
+            wire them into a <span class="focus">URLConf</span>
+            called something like <span class="focus">core/api.py</span> or <span class="focus">core/apiv1.py</span> and
+            include that from the project root’s <span class="focus">urls.py</span>
+            module</p>
+    </section>
+
+    <section>
+        <img src="img/rest_url_grouping.png"/>
+    </section>
 </section>
 
 <section>
