@@ -892,17 +892,64 @@
     <section>
         <h2>Best Practices for Class-Based Views</h2>
     </section>
-</section>
 
-<section>
     <section>
-        <h2>Common Patterns for Forms</h2>
+        <h2>Guideline when writing CBVs</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Less view code is better
+            </li>
+            <li class="fragment roll-in">
+                Never repeat code in views
+            </li>
+            <li class="fragment roll-in">
+                Views should handle presentation logic. Try to keep business logic in models when possible, or in forms
+                if you must
+            </li>
+            <li class="fragment roll-in">
+                Keep your views simple
+            </li>
+            <li class="fragment roll-in">
+                Keep your <span class="focus">mixins</span> simpler
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Mixin Rules</h2>
+        <ul>
+            <li class="fragment roll-in">
+                The base view classes provided by Django always go to the right
+            </li>
+            <li class="fragment roll-in">
+                Mixins go to the left of the base view
+            </li>
+            <li class="fragment roll-in">
+                Mixins should inherit from Python’s built-in object type
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <img src="img/mixin.png"/>
+    </section>
+
+    <section>
+        <h2>Django CBVs</h2>
+        <img src="img/cbvs.png"/>
+    </section>
+
+    <section>
+        <h3>Constraining Django CBV Access to Authenticated Users</h3>
+
+        <p>PS: It uses <span class="focus">braces</span> lib</p>
+        <img src="img/login_mixin.png">
     </section>
 </section>
 
 <section>
     <section>
-        <h2>More Things to Know About Forms</h2>
+        <h2>Things to Know About Forms</h2>
     </section>
 </section>
 
