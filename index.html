@@ -1320,6 +1320,79 @@
     <section>
         <h2>Dealing with the User Model</h2>
     </section>
+
+    <section>
+        <h2>Finding the User Model</h2>
+        <img src="img/finding_user_model.png"/>
+    </section>
+
+    <section>
+        <h3>Use <span class="focus">settings.AUTH_USER_MODEL</span> for Foreign Keys</h3>
+        <img src="img/auth_user_model.png"/>
+    </section>
+
+    <section>
+        <h3>Custom User Model</h3>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">Option 1</span>: Linking Back From a Related Model
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Option 2</span>: Subclass <span class="focus">AbstractUser</span>
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Option 3</span>: Subclass <span class="focus">AbstractBaseUser</span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Linking Back From a Related Model</h3>
+        <img src="img/user_model1.png"/>
+    </section>
+
+    <section>
+        <h3>Subclass <span class="focus">AbstractUser</span></h3>
+
+        <p><img src="img/user_model2.png"/></p>
+
+        <p><img src="img/user_model2_settings.png"/></p>
+    </section>
+
+    <section>
+        <h3>Subclass <span class="focus">AbstractBaseUser</span></h3>
+
+        <p><span class="focus">AbstractBaseUser</span> is the bare-bones option with only 3 fields: <span class="focus">password</span>,
+            <span class="focus">last_login</span>, and <span class="focus">is_active</span></p>
+
+        <p class="fragment roll-in">Choose this option if:</p>
+        <ul>
+            <li class="fragment roll-in">
+                You’re unhappy with the fields that the User model provides by default, such as <span class="focus">first_name</span>
+                and <span class="focus">last_name</span>
+            </li>
+            <li class="fragment roll-in">
+                You prefer to subclass from an extremely bare-bones clean slate but want to take advantage of the <span
+                    class="focus">AbstractBaseUser</span> sane default approach to storing passwords
+            </li>
+        </ul>
+
+        <p class="fragment roll-in"><a
+                href="https://docs.djangoproject.com/en/1.6/topics/auth/customizing/#a-full-example">Official Doc:
+            Customizing User</a></p>
+    </section>
+
+    <section>
+        <img src="img/user_model3.png"/>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+
+        <p class="focus">Depending on the needs of a project, they can either continue with the current way of doing
+            things or customize the actual user model</p>
+    </section>
+
 </section>
 
 <section>
