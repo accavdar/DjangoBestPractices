@@ -1887,6 +1887,118 @@
     <section>
         <h2>Logging</h2>
     </section>
+
+    <section>
+        <h3>When to Use Each Log Level</h3>
+
+        <p class="focus">LOG Levels: DEBUG, INFO, WARNING, ERROR, and CRITICAL</p>
+
+        <p>In your production environment, we recommend using every log level except for <span
+                class="focus">DEBUG</span></p>
+        <img src="img/log_levels.png"/>
+    </section>
+
+    <section>
+        <h3>Log Catastrophes With <span class="focus">CRITICAL</span></h3>
+
+        <p class="focus">Ex: if your code relies on an internal web service being available, and if that web service is
+            part of your site’s core functionality, then you might log at the CRITICAL level anytime that the web
+            service is inaccessible</p>
+    </section>
+
+    <section>
+        <h3>Log Production Errors With <span class="focus">ERROR</span></h3>
+
+        <p class="focus">We recommend that you use the ERROR log level whenever you need to log an error that
+            is worthy of being emailed to you or your site admins</p>
+    </section>
+
+    <section>
+        <h3>Log Lower-Priority Problems With <span class="focus">WARNING</span></h3>
+
+        <p class="focus">This level is good for logging events that are unusual and potentially bad, but not as bad as
+            ERROR-level events</p>
+
+        <p>Ex: if you are using <span class="focus">django-admin-honeypot</span> to set up a fake <span class="focus">admin/</span>
+            login form, you might want to log intruders' login attempts to this level</p>
+    </section>
+
+    <section>
+        <h3>Log Useful State Information With <span class="focus">INFO</span></h3>
+        <ul>
+            <li class="fragment roll-in">
+                Startup and shutdown of important components not logged elsewhere
+            </li>
+            <li class="fragment roll-in">
+                State changes that occur in response to important events
+            </li>
+            <li class="fragment roll-in">
+                Changes to permissions, e.g. when users are granted admin access
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Log Debug-Related Messages to <span class="focus">DEBUG</span></h3>
+
+        <p><img src="img/log_print.png"/></p>
+
+        <p><img src="img/log_debug.png"/></p>
+    </section>
+
+    <section>
+        <h3>Log Tracebacks When Catching Exceptions</h3>
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">Logger.exception()</span> automatically includes the traceback and logs at <span
+                    class="focus">ERROR</span> level
+            </li>
+            <li class="fragment roll-in">
+                For other log levels, use the optional <span class="focus">exc_info keyword</span> argument
+            </li>
+        </ul>
+        <img class="fragment roll-in" src="img/log_trackbacks.png"/>
+    </section>
+
+    <section>
+        <h3>One Logger Per Module That Uses Logging</h3>
+
+        <p>Whenever you use logging in another module, don’t import and reuse a logger from elsewhere. Instead, define a
+            new logger specific to the module like this</p>
+        <img src="img/logger_per_module.png"/>
+    </section>
+
+    <section>
+        <h3>Log Locally to Rotating Files</h3>
+
+        <p>A common way to set up log rotation is to use the UNIX <span class="focus">logrotate</span> utility with
+            <span class="focus">logging.handlers.WatchedFileHandler</span></p>
+    </section>
+
+    <section>
+        <h3>Other Logging Tips</h3>
+        <ul>
+            <li class="fragment roll-in">
+                Control the logging in settings files per the Django documentation on logging
+            </li>
+            <li class="fragment roll-in">
+                While debugging, use the Python logger at <span class="focus">DEBUG</span> level
+            </li>
+            <li class="fragment roll-in">
+                After running tests at <span class="focus">DEBUG</span> level, try running them at <span class="focus">INFO</span>
+                and <span class="focus">WARNING</span> levels. The reduction in information you see may help you
+                identify upcoming deprecations for third-party libraries
+            </li>
+            <li class="fragment roll-in">
+                Don’t wait until it’s too late to add logging. You’ll be grateful for your logs if and when your site
+                fails
+            </li>
+            <li class="fragment roll-in">
+                Use <span class="focus">logutils</span> utility for advanced logging features
+            </li>
+
+        </ul>
+    </section>
 </section>
 
 <section>
