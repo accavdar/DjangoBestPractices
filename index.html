@@ -1528,13 +1528,128 @@
 
 <section>
     <section>
-        <h2>Documentation</h2>
-    </section>
-</section>
-
-<section>
-    <section>
         <h2>Finding and Reducing Bottlenecks</h2>
+    </section>
+
+    <section>
+        <h3>Speed Up Query-Heavy Pages</h3>
+        <ul>
+            <li class="fragment roll-in">
+                Use <span class="focus">django-debug-toolbar</span> to help you determine where most of your queries are
+                coming from. Configure it to include the <span class="focus">SQLDebugPanel</span>
+            </li>
+            <li class="fragment roll-in">
+                Add <span class="focus">django-cache-panel</span> to your project, but only configured to run when <span
+                    class="focus">settings/dev.py</span> module is
+                called. This will increase visibility into what your cache is doing
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">django-extensions</span> comes with a tool called <span class="focus">RunProfileServer</span>
+                that starts Django’s runserver command with hotshot/profiling tools enabled
+            </li>
+            <li class="fragment roll-in">
+                Reduce the Number of Queries
+                <ul>
+                    <li>Use <span class="focus">select_related()</span> in your ORM</li>
+                    <li>Implement caching using a key/value store such as <span class="focus">Memcached</span></li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                Speed Up Common Queries
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>TIP: Use EXPLAIN ANALYZE / EXPLAIN</h3>
+
+        <p>If you’re using PostgreSQL, you can use <span class="focus">EXPLAIN ANALYZE</span> to get an extremely
+            detailed query plan and analysis
+            of any raw SQL query. The MySQL equivalent is the <span class="focus">EXPLAIN</span> command, which isn’t as
+            detailed but is still
+            helpful</p>
+    </section>
+
+    <section>
+        <h3>Get the Most Out of Your Database</h3>
+        <ul>
+            <li class="fragment roll-in">
+                Don’t add logs to the database. They will slow DB performance
+            </li>
+            <li class="fragment roll-in">
+                Don’t store ephemeral data in the database. This includes examples such as <span class="focus">django.contrib.sessions</span>,
+                <span class="focus">django.contrib.messages</span>, and <span class="focus">metrics</span>. Instead,
+                move this data to things like <span class="focus">Memcached</span>, <span class="focus">Redis</span>,
+                <span class="focus">Riak</span>, and <span class="focus">other non-relational stores</span>
+            </li>
+            <li class="fragment roll-in">
+                Try performance tuning for your database (ex: MySQL)
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Cache Queries With Memcached or Redis</h3>
+
+        <p class="focus">Simply setting up Django’s built-in caching system with Memcached or Redis</p>
+    </section>
+
+    <section>
+        <h3>Identify Specific Places to Cache</h3>
+        <ul>
+            <li class="fragment roll-in">
+                Which views/templates contain the most queries?
+            </li>
+            <li class="fragment roll-in">
+                Which URLs are being requested the most?
+            </li>
+            <li class="fragment roll-in">
+                When should a cache for a page be invalidated?
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Consider Third-Party Caching Packages</h3>
+
+        <p class="focus">Additional Features of 3rd party packages:</p>
+        <ul>
+            <li class="fragment roll-in">
+                Caching of QuerySets
+            </li>
+            <li class="fragment roll-in">
+                Cache invalidation settings/mechanisms
+            </li>
+            <li class="fragment roll-in">
+                Alternative or experimental approaches to caching
+            </li>
+            <li class="fragment roll-in">
+                Ex: <span class="focus">django-cache-machine</span>, <span class="focus">johnny-cache</span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Compression and Minification of HTML, CSS, and JavaScript</h3>
+
+        <p class="focus">Django provides tools for you: GZipMiddleware and the {% spaceless %} template tag. However,
+            compression and
+            minification take up system resources, which can create bottlenecks of their own</p>
+
+        <p>A better approach is to use <span class="focus">Apache</span> and <span class="focus">Nginx</span> web
+            servers configured to compress the outgoing content</p>
+    </section>
+
+    <section>
+        <h3>Use Upstream Caching or a Content Delivery Network</h3>
+
+        <p><span class="focus">Upstream caches</span> such as <span class="focus">Varnish</span> are very useful. They
+            run in front of your web server and speed up web page
+            or content serving significantly</p>
+
+        <p><span class="focus">Content Delivery Networks (CDNs)</span> like <span class="focus">Akamai</span> and <span
+                class="focus">Amazon Cloudfront</span> serve static media such as images, video,
+            CSS, and JavaScript files</p>
     </section>
 </section>
 
@@ -1602,3 +1717,4 @@
 </script>
 </body>
 </html>
+
