@@ -1654,9 +1654,233 @@
 </section>
 
 <section>
-    <section>
-        <h2>Security Best Practices</h2>
-    </section>
+<section>
+    <h2>Security Best Practices</h2>
+</section>
+
+<section>
+    <h3>Harden Your Servers</h3>
+
+    <p class="focus">Change your SSH port and disable/remove unnecessary services</p>
+</section>
+
+<section>
+    <h3>Know Django’s Security Features</h3>
+
+    <p class="focus">Django has lots of security features. Know how to configure them. Django security features
+        include:</p>
+
+    <ul>
+        <li class="fragment roll-in">
+            Cross-site scripting (XSS) protection
+        </li>
+        <li class="fragment roll-in">
+            Cross-site request forgery (CSRF) protection
+        </li>
+        <li class="fragment roll-in">
+            SQL injection protection
+        </li>
+        <li class="fragment roll-in">
+            Clickjacking protection
+        </li>
+        <li class="fragment roll-in">
+            Support for SSL/HTTPS, including secure cookies
+        </li>
+        <li class="fragment roll-in">
+            Validation of files uploaded by users
+        </li>
+        <li class="fragment roll-in">
+            Secure password storage, using the PBKDF2 algorithm with a SHA256 hash by default
+        </li>
+        <li class="fragment roll-in">
+            Automatic HTML escaping
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Turn Off DEBUG Mode in Production</h3>
+
+    <p class="focus">Your production site should not be running in DEBUG mode</p>
+</section>
+
+<section>
+    <h3>Keep Your Secret Keys Secret</h3>
+
+    <p class="focus">Keep Secret Keys Out With Environment Variables</p>
+</section>
+
+<section>
+    <h3>HTTPS Everywhere</h3>
+    <ul>
+        <li class="fragment roll-in">
+            It is always better to deploy a site behind <span class="focus">HTTPS</span>
+        </li>
+        <li class="fragment roll-in">
+            Two packages that force HTTPS/SSL across your entire site through Django middleware
+            <ul>
+                <li><a href="https://github.com/rdegges/django-sslify">django-sslify</a></li>
+                <li><a href="https://github.com/carljm/django-secure">django-secure</a></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Use HTTP Strict Transport Security (HSTS)</h3>
+
+    <p class="focus">When you enable HSTS, your site’s web pages include a HTTP header that tells HSTS-compliant
+        browsers to only connect to the site via secure connections:</p>
+
+
+    <img src="img/secure_cookies.png"/>
+</section>
+
+<section>
+    <h3>Use Secure Cookies</h3>
+
+    <p class="focus">Your site’s cookies should also be served over HTTPS. You’ll need to set the following in your
+        settings:</p>
+    <ul>
+        <li>
+            HSTS-compliant browsers will redirect HTTP links to HTTPS
+        </li>
+        <li>
+            If a secure connection isn’t possible (e.g. the certificate is self-signed or expired), an error message
+            will be shown and access will be disallowed
+        </li>
+    </ul>
+
+    <img src="img/hsts.png"/>
+</section>
+
+<section>
+    <h3>Use Django’s Allowed Hosts Validation</h3>
+
+    <p>You must set <span class="focus">ALLOWED_HOSTS</span> in your settings to a list of allowed host/domain
+        names. This is a security measure to prevent use of fake HTTP Host headers to submit requests</p>
+</section>
+
+<section>
+    <h3>Always Use CSRF Protection With HTTP Forms That Modify Data</h3>
+
+    <p>Django comes with <span class="focus">Cross-site Request Forgery Protection (CSRF)</span> built in</p>
+
+    <p>You should use Django’s <span class="focus">CsrfViewMiddleware</span> as blanket protection across your site
+        rather than manually decorating views with <span class="focus">csrf_protect</span></p>
+</section>
+
+<section>
+    <h3>Prevent Against Cross-Site Scripting (XSS) Attacks</h3>
+
+    <p class="focus">Django by default escapes a lot of specific characters meaning most attacks fail</p>
+</section>
+
+<section>
+    <h3>Defend Against Python Code Injection Attacks</h3>
+    <ul>
+        <li class="fragment roll-in">
+            Beware of the <span class="focus">eval()</span>, <span class="focus">exec()</span>, and <span
+                class="focus">execfile()</span> built-ins. If your project allows arbitrary strings or
+            files to be passed into any of these functions, you are leaving your system open to attack
+        </li>
+        <li class="fragment roll-in">
+            Never unpickle data received from an untrusted or unauthenticated source
+        </li>
+        <li class="fragment roll-in">
+            Validate All User Input With Django Forms
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Handle User-Uploaded Files Carefully</h3>
+    <ul>
+        <li class="fragment roll-in">Pay close attention to where you’re uploading them and what type of files they
+            are, to avoid
+            security holes
+        </li>
+        <li class="fragment roll-in">
+            Use the <span class="focus">python-magic</span> library to check the uploaded file’s headers
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Don’t Use ModelForms.Meta.exclude</h3>
+
+    <p>When using <span class="focus">ModelForms</span>, always use <span class="focus">Meta.fields</span>. Never
+        use <span class="focus">Meta.exclude</span>. The use of <span class="focus">Meta.exclude</span> is
+        considered a grave security risk. We can’t stress this strongly enough. <span
+                class="alert">Don’t do it</span></p>
+</section>
+
+<section>
+    <h3>Meta.fields vs. Meta.exclude</h3>
+
+    <p><img src="img/meta_exclude.png"/></p>
+
+    <p><img src="img/meta_fields.png"/></p>
+</section>
+
+<section>
+    <h3>Beware of SQL Injection Attacks</h3>
+
+    <p class="focus">The Django ORM generates properly-escaped SQL which will protect your site from users
+        attempting to execute malignant, arbitrary SQL code</p>
+
+    <p class="focus">When using raw SQL, be especially careful to escape your SQL code properly</p>
+</section>
+
+<section>
+    <h3>Never Store Credit Card Data</h3>
+
+    <p class="focus">We recommend using third-party services like Stripe, Balanced Payments, PayPal, and others that
+        handle storing this information for you</p>
+</section>
+
+<section>
+    <h3>Secure the Django Admin</h3>
+
+    <p class="focus">Since the Django admin gives your site admins special powers that ordinary users don’t have, it’s
+        good practice to make it extra secure</p>
+
+    <ul>
+        <li class="fragment roll-in">
+            Change the Default Admin URL
+        </li>
+        <li class="fragment roll-in">
+            Use <span class="focus">django-admin-honeypot</span>
+        </li>
+        <li class="fragment roll-in">
+            Only Allow Admin Access via HTTPS
+        </li>
+        <li class="fragment roll-in">
+            Limit Admin Access Based on IP
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Monitor Your Sites</h3>
+
+    <p class="focus">Check your web servers’ access and error logs regularly. Install monitoring tools and check on them
+        frequently</p>
+</section>
+
+<section>
+    <h3>Keep Your Dependencies Up-to-Date</h3>
+
+    <p class="focus">You should always update your projects to work with the latest stable release of Django. This is
+        particularly important when a release includes security fixes</p>
+</section>
+
+<section>
+    <h3>Put Up a Vulnerability Reporting Page</h3>
+
+    <p class="focus">It’s a good idea to publish information on your site about how users can report security
+        vulnerabilities to you</p>
+</section>
 </section>
 
 <section>
