@@ -1147,23 +1147,166 @@
     <section>
         <h2>Templates: Best Practices</h2>
     </section>
-</section>
 
-<section>
     <section>
-        <h2>Template Tangs and Filters</h2>
+        <h2>Follow a Minimalist Approach</h2>
+
+        <p class="focus">Find simple, elegant ways to put more of your business logic into Python code rather than into
+            templates</p>
     </section>
+
+    <section>
+        <h3>Template Architecture Patterns</h3>
+        <ul>
+            <li class="fragment roll-in">
+                2-Tier Template Architecture Example
+            </li>
+            <li class="fragment roll-in">
+                3-Tier Template Architecture Example
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2-Tier Template Architecture Example</h2>
+        <img src="img/two_tier.png"/>
+    </section>
+
+    <section>
+        <h2>3-Tier Template Architecture Example</h2>
+        <img src="img/three_tier.png"/>
+    </section>
+
+    <section>
+        <h2>Flat Is Better Than Nested</h2>
+
+        <p class="focus">Complex template hierarchies make it exceedingly difficult to debug, modify, and extend HTML
+            pages and tie in CSS styles</p>
+
+        <p class="focus">When you have large, multi-line chunks of the same or very similar code in separate templates,
+            refactoring that code into reusable blocks will make your code more maintainable. </p>
+    </section>
+
+    <section>
+        <h2>Template Best Practices</h2>
+        <ul>
+            <li class="fragment roll-in">
+                Limit Processing in Templates
+                <ul>
+                    <li>Try to think about caching to handle template inefficiencies</li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                Don't Aggregate in Templates
+                <ul>
+                    <li>Ex: Birth Date -> Age</li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">
+                Don't Filter With Conditionals in Templates
+            </li>
+            <li class="fragment roll-in">
+                Don't Use Complex Implied Queries in Templates
+            </li>
+            <li class="fragment roll-in">
+                Avoid Hidden CPU Load in Templates
+                <ul>
+                    <li>Ex: Take image processing out of templates and into views, models, helper methods, or
+                        asynchronous messages queues like Celery
+                    </li>
+                </ul>
+            </li>
+
+            <li class="fragment roll-in">
+                Avoid Hidden REST API Calls in Templates
+                <ul>
+                    <li>An example is querying an unfortunately slow maps API hosted by a third-party service</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Don't Filter With Conditionals in Templates</h2>
+
+        <p class="alert">Don't do this:</p>
+        <img src="img/conditonal_templates.png">
+    </section>
+
+    <section>
+        <h2>Don't Filter With Conditionals in Templates</h2>
+
+        <p class="success">Do this:</p>
+        <img src="img/conditonal_templates2.png">
+    </section>
+
+    <section>
+        <h2>Don't Filter With Conditionals in Templates</h2>
+
+        <p class="success">Do this:</p>
+        <img src="img/conditonal_templates3.png">
+    </section>
+
+    <section>
+        <h2>Don't Use Complex Implied Queries in Templates</h2>
+
+        <p class="alert">Don't do this:</p>
+        <img src="img/complex_queries.png">
+    </section>
+
+    <section>
+        <h2>Don't Use Complex Implied Queries in Templates</h2>
+
+        <p>Use <span class="focus">select_related()</span> method</p>
+
+        <p class="success">Do this:</p>
+        <img src="img/complex_queries2.png">
+    </section>
+
+    <section>
+        <h2>Exploring Template Inheritance</h2>
+        <img src="img/template_inheritance.png"/>
+    </section>
+
+    <section>
+        <h2>Template Tags</h2>
+        <img src="img/template_tags.png"/>
+    </section>
+
+    <section>
+        <img src="img/template_inheritance3.png"/>
+    </section>
+
+    <section>
+        <img src="img/template_inheritance4.png"/>
+    </section>
+
+    <section>
+        <h2>Template Objects</h2>
+        <img src="img/template_objects.png"/>
+    </section>
+
+    <section>
+        <h3>{block super}</h3>
+
+        <p><img src="img/block_super.png"/></p>
+
+        <p><img src="img/block_super2.png"/></p>
+    </section>
+
+    <section>
+        <h3>Use URL Names Instead of Hardcoded Paths</h3>
+
+        <p><img src="img/url_names.png"/></p>
+
+        <p><img src="img/url_names2.png"/></p>
+    </section>
+
 </section>
 
 <section>
     <section>
         <h2>Trade offs of Replacing Core Components</h2>
-    </section>
-</section>
-
-<section>
-    <section>
-        <h2>Working with Django Admin</h2>
     </section>
 </section>
 
@@ -1206,12 +1349,6 @@
 <section>
     <section>
         <h2>Logging</h2>
-    </section>
-</section>
-
-<section>
-    <section>
-        <h2>Signals: Use Cases and Avoidance Techniques</h2>
     </section>
 </section>
 
