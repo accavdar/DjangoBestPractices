@@ -2005,6 +2005,65 @@
     <section>
         <h2>Random Utilities</h2>
     </section>
+
+    <section>
+        <h3>Create a Core App for Your Utilities</h3>
+
+        <p>Our way of handling our utilities is to place them into a Django app called <span class="core">core</span>
+            that contains modules which contains functions and objects for use across a project</p>
+        <img src="img/core_app.png"/>
+    </section>
+
+    <section>
+        <h3>Django’s Own Swiss Army Knife</h3>
+
+        <p>Django has a number of useful helper functions that don’t have a better home than the <span class="core">django.utils</span>
+            package</p>
+    </section>
+
+    <section>
+        <h3>django.contrib.humanize</h3>
+
+        <p class="focus">his is a set of localized template filters designed to give user presented data a more 'human'
+            touch</p>
+    </section>
+
+    <section>
+        <h3>django.utils.html.remove_tags(value, tags)</h3>
+
+        <p class="focus">When you need to accept content from users and want to strip out a list of tags, this function
+            removes those tags for you while keeping all other content untouched</p>
+    </section>
+
+    <section>
+        <h3>django.utils.html.strip_tags(value)</h3>
+
+        <p class="focus">When you need to accept content from users and have to strip out anything that could be HTML,
+            this function removes those tags for you while keeping all the existing text between tags</p>
+    </section>
+
+    <section>
+        <h3>django.utils.text.slugify(value)</h3>
+
+        <p>Whatever you do, don’t write your own version of the <span class="focus">slugify()</span> function; as any
+            inconsistency from what
+            Django does with this function will cause subtle yet nasty problems. Instead, use the same function that
+            Django uses and <span class="focus">slugify()</span> consistently</p>
+    </section>
+
+    <section>
+        <h3>django.utils.timezone</h3>
+
+        <p class="focus">When you use Django’s time zone support, date and time information is stored in the database
+            uniformly in UTC format and converted to local time zones as needed</p>
+    </section>
+
+    <section>
+        <h3>django.utils.translation</h3>
+
+        <p class="focus">Much of the non-English speaking world appreciates use of this tool, as it provides Django’s
+            i18n support</p>
+    </section>
 </section>
 
 <section>
