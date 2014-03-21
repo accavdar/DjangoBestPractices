@@ -1399,6 +1399,131 @@
     <section>
         <h2>Testing</h2>
     </section>
+
+    <section>
+        <h3>Useful Libraries For Testing Django Projects</h3>
+
+        <p>Use <span class="focus">coverage.py</span> and <span class="focus">django-discover-runner</span></p>
+    </section>
+
+    <section>
+        <h3>How to Structure Tests</h3>
+
+        <p>The first thing we do is delete the default but useless <span class="focus">tests.py</span> module that <span
+                class="focus">django-admin.py startapp</span> creates</p>
+
+        <p>In its place, we create a tests directory and place an <span class="focus">__init__.py</span> file in it so
+            it becomes a valid Python
+            module. Then, inside the new tests module, because most apps need them, we create <span class="focus">test_forms.py</span>,
+            <span class="focus">test_models.py</span>, <span class="focus">test_views.py</span> modules. Tests that
+            apply to forms go into <span class="focus">test_forms.py</span>, model tests go into
+            <span class="focus">test_models.py</span>, and so on</p>
+    </section>
+
+    <section>
+        <h3>Test Structure</h3>
+        <img src="img/test_structure.png"/>
+    </section>
+
+    <section>
+        <h3>TIP: Prefix Test Modules With <span class="focus">test_</span></h3>
+
+        <p>It’s critically important that we always prefix test modules with <span class="focus">test_</span>, otherwise
+            we can’t configure
+            django-discover-runner to discover just our test files.</p>
+    </section>
+
+    <section>
+        <h2>How to Write Unit Tests</h2>
+    </section>
+
+    <section>
+        <h3>Each Test Method Tests One Thing</h3>
+
+        <p class="focus">A single test should assert the behavior of a single view, model, form, method or function</p>
+
+        <p class="focus">Be absolutely minimalistic when constructing the environment</p>
+        <img src="img/test_case.png"/>
+
+    </section>
+
+    <section>
+        <h3>Don’t Write Tests That Have to Be Tested</h3>
+
+        <p class="focus">Tests should be written as simply as possible. If the code in a test or called to help run a
+            test feels complicated or abstracted, then you have a problem</p>
+
+        <p class="focus">Don’t Repeat Yourself Doesn’t Apply to Writing Tests </p>
+    </section>
+
+    <section>
+        <h3>PACKAGE TIP: Tools to Generate Test Data</h3>
+
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">factory_boy</span> A package that generates model test data
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">model_mommy</span> Another package that generates model test data
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">mock</span> Not explicitly for Django, this allows you to replace parts of your
+                system with mock objects
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Things That Should Be Tested</h3>
+
+        <h2><span class="focus">Everything</span></h2>
+
+        <p class="focus">Views, Models, Forms, Validators, Filters, Signals, Template Tags, ...</p>
+    </section>
+
+    <section>
+        <h3>Continuous Integration (CI)</h3>
+
+        <p class="focus">For medium and large projects, we recommend setting up a continuous integration (CI) server to
+            run the project’s test suite whenever code is committed and pushed to the project repo</p>
+    </section>
+
+    <section>
+        <h3>Test Coverage</h3>
+
+        <p class="focus">Try to get test coverage as high as possible. Every work day we increase our test coverage is a
+            victory, and every day the coverage goes down is a loss</p>
+    </section>
+
+    <section>
+        <h3>Setup a Test Runner</h3>
+
+        <p>Create a <span class="focus">settings/test.py</span> module and add the following</p>
+        <img src="img/test_config.png"/>
+    </section>
+
+    <section>
+        <h3>Run Tests and Generate Coverage Report</h3>
+
+        <p><img src="img/test_coverage.png"/></p>
+
+        <p><img src="img/execute_tests.png"/></p>
+    </section>
+
+    <section>
+        <h3>Generate Report</h3>
+
+        <img src="img/generate_report.png"/>
+    </section>
+
+    <section>
+        <h3>Playing the Game of Test Coverage</h3>
+
+        <p class="focus">The game has a single rule:</p>
+
+        <h3><span class="focus">Mandate that no commit can lower test coverage</span></h3>
+    </section>
+
 </section>
 
 <section>
