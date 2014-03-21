@@ -1996,7 +1996,6 @@
             <li class="fragment roll-in">
                 Use <span class="focus">logutils</span> utility for advanced logging features
             </li>
-
         </ul>
     </section>
 </section>
@@ -2069,6 +2068,28 @@
 <section>
     <section>
         <h2>Deploying Django Projects</h2>
+    </section>
+
+    <section>
+        <h2>Using Your Own Web Servers</h2>
+
+        <p>You should deploy your Django projects with <span class="focus">WSGI</span></p>
+
+        <p class="focus">Most common setup:</p>
+
+        <ul>
+            <li class="fragment roll-in">
+                <span class="focus">Gunicorn</span> behind a <span class="focus">Nginx</span> proxy
+            </li>
+            <li class="fragment roll-in">
+                <span class="focus">Apache</span> with <span class="focus">mod_wsgi</span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Quick Comparison</h2>
+        <img src="img/deployment.png"/>
     </section>
 </section>
 
